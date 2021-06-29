@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FrutiApp">
-        <activity android:name=".MainActivity2_Nivel1"></activity>
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait" >
+        <activity android:name=".MainActivity2_nivel2"></activity>
+        <activity android:name=".MainActivity2_Nivel1" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
