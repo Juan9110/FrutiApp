@@ -1,13 +1,18 @@
 package com.example.frutiapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,6 +53,20 @@ public class MainActivity extends AppCompatActivity {
             iv_personaje.setImageResource(id);
         }
 
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "BD", null, 1);
+        SQLiteDatabase BD = admin.getReadableDatabase();
+
+        Cursor consulta = BD.rawQuery(
+           "select * from puntaje where score = (select max(score) from puntaje)", null);
+        if(consulta.moveToFirst()){
+            String temp_nombre = consulta.getString(0);
+            String temp_score = consulta.getString(1);
+            tv_bestScore.setText("Record: " + temp_score + "  de " + temp_nombre);
+            BD.close();
+        }else{
+            BD.close();
+        }
+
         mp = MediaPlayer.create(this, R.raw.alphabet_song);
         mp.start();
         mp.setLooping(true);
@@ -61,7 +80,22 @@ public class MainActivity extends AppCompatActivity {
             mp.stop();
             mp.release();
 
+            Intent intent = new Intent(this, MainActivity2_Nivel1.class);
+            intent.putExtra("jugador", nombre);
+            startActivity(intent);
+            finish();
+        }else{
+            Toast.makeText(this, "Primero debes escribir tu nombre?", Toast.LENGTH_SHORT).show();
+
+            et_nombre.requestFocus();
+            InputMethodManager imm = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(et_nombre, InputMethodManager.SHOW_IMPLICIT);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 
 }
