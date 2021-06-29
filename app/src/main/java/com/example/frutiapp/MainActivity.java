@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,5 +48,20 @@ public class MainActivity extends AppCompatActivity {
             iv_personaje.setImageResource(id);
         }
 
+        mp = MediaPlayer.create(this, R.raw.alphabet_song);
+        mp.start();
+        mp.setLooping(true);
+
     }
+
+    public void Jugar(View view){
+        String nombre = et_nombre.getText().toString();
+
+        if(!nombre.equals("")) {
+            mp.stop();
+            mp.release();
+
+        }
+    }
+
 }
