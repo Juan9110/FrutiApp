@@ -46,6 +46,7 @@ public class MainActivity2_Nivel1 extends AppCompatActivity {
 
         mp_great = MediaPlayer.create(this, R.raw.wonderful);
         mp_bad = MediaPlayer.create(this, R.raw.bad);
+        NumAleatorio();
     }
     public void NumAleatorio() {
         if(score <=9){
