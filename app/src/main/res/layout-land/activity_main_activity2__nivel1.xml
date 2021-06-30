@@ -63,7 +63,7 @@
 
     <ImageView
         android:id="@+id/imageViewNumUno"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -76,8 +76,8 @@
 
     <ImageView
         android:id="@+id/imageView_signo"
-        android:layout_width="120dp"
-        android:layout_height="125dp"
+        android:layout_width="60dp"
+        android:layout_height="120dp"
         android:layout_alignParentTop="true"
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
@@ -93,7 +93,7 @@
 
     <ImageView
         android:id="@+id/imageView_NumDos"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
