@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity2_Nivel1 extends AppCompatActivity {
+
     private TextView tv_nombre, tv_score;
     private ImageView iv_Auno, iv_Ados, iv_vidas;
     private EditText et_respuesta;
