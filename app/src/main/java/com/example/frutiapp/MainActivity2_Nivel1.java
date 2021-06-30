@@ -1,6 +1,9 @@
 package com.example.frutiapp;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -62,11 +65,13 @@ public class MainActivity2_Nivel1 extends AppCompatActivity {
                 score++;
                 tv_score.setText("Score: " + score);
                 et_respuesta.setText("");
+                BaseDeDatos();
 
             }else{
 
                 mp_bad.start();
                 vidas--;
+                BaseDeDatos();
 
                 switch (vidas) {
                     case 3:
@@ -139,5 +144,41 @@ public class MainActivity2_Nivel1 extends AppCompatActivity {
             mp.stop();
             mp.release();
         }
+    }
+
+    public void BaseDeDatos() {
+        AdminSQLiteOpenHelper Admin = new AdminSQLiteOpenHelper(this, "BD",null,1);
+        SQLiteDatabase BD = Admin.getWritableDatabase();
+
+        Cursor consulta = BD.rawQuery("select * from puntaje where score = (select max (score) from puntaje)",null);
+        if(consulta.moveToFirst()){
+            String temp_nombre = consulta.getString(0);
+            String temp_score = consulta.getString(1);
+
+            int bestScore = Integer.parseInt(temp_score);
+
+            if(score > bestScore) {
+                ContentValues modificacion = new ContentValues();
+                modificacion.put("nombre", nombre_jugador);
+                modificacion.put("score", score);
+
+                BD.update("puntaje", modificacion,"score=" + bestScore,null);
+            }
+
+            BD.close();
+
+        }else{
+           ContentValues insertar = new ContentValues();
+
+           insertar.put("nombre", nombre_jugador);
+            insertar.put("score", score);
+
+            BD.insert("puntaje", null, insertar);
+            BD.close();
+        }
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }
