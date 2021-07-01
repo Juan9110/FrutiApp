@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity2_nivel2 extends AppCompatActivity {
@@ -30,7 +29,7 @@ public class MainActivity2_nivel2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2__nivel1);
 
-        Toast.makeText(this, "Nivel 2 - Suma Moderadas", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Nivel 2 - Suma Moderadas", Toast.LENGTH_LONG).show();
 
         tv_nombre = (TextView)findViewById(R.id.textview_nombre);
         tv_score = (TextView)findViewById(R.id.textView_score);
