@@ -26,7 +26,7 @@ public class MainActivity2_Nivel3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_activity2__nivel3);
+        setContentView(R.layout.activity_main_activity2__nivel1);
 
         Toast.makeText(this, "Nivel 3 - Restas", Toast.LENGTH_LONG).show();
 

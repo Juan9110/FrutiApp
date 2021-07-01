@@ -181,4 +181,9 @@ public class MainActivity2_Nivel1 extends AppCompatActivity {
     public void onBackPressed() {
 
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 }
