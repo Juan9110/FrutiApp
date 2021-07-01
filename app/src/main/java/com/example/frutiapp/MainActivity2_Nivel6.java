@@ -13,10 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity2_Nivel5 extends AppCompatActivity {
+public class MainActivity2_Nivel6 extends AppCompatActivity {
+
 
     private TextView tv_nombre, tv_score;
-    private ImageView iv_Auno, iv_Ados, iv_vidas;
+    private ImageView iv_Auno, iv_Ados, iv_vidas, iv_signo;
     private EditText et_respuesta;
     private MediaPlayer mp, mp_great, mp_bad;
 
@@ -27,15 +28,16 @@ public class MainActivity2_Nivel5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_activity2__nivel5);
+        setContentView(R.layout.activity_main_activity2__nivel3);
 
-        Toast.makeText(this, "Nivel 5 - Multiplicasiones", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Nivel 6 - Sumas, Restas y multiplicaciones", Toast.LENGTH_LONG).show();
 
         tv_nombre = (TextView)findViewById(R.id.textview_nombre);
         tv_score = (TextView)findViewById(R.id.textView_score);
         iv_vidas = (ImageView)findViewById(R.id.imageView_vidas);
         iv_Auno = (ImageView)findViewById(R.id.imageViewNumUno);
         iv_Ados = (ImageView)findViewById(R.id.imageView_NumDos);
+        iv_signo = (ImageView)findViewById(R.id.imageView_signo);
         et_respuesta = (EditText)findViewById(R.id.editText_resultado);
 
         nombre_jugador = getIntent().getStringExtra("jugador");
@@ -123,34 +125,43 @@ public class MainActivity2_Nivel5 extends AppCompatActivity {
     }
 
     public void NumAleatorio() {
-        if(score <=49){
+        if(score <=60){
 
             numAleatorio_uno = (int) (Math.random() * 10);
             numAleatorio_dos = (int) (Math.random() * 10);
 
-            resultado = numAleatorio_uno * numAleatorio_dos;
+            if (numAleatorio_uno >= 0 && numAleatorio_uno <=3) {
+                resultado = numAleatorio_uno + numAleatorio_dos;
+                iv_signo.setImageResource(R.drawable.adicion);
+            }else  if (numAleatorio_uno >= 4 && numAleatorio_uno <=7){
+                resultado = numAleatorio_uno - numAleatorio_dos;
+                iv_signo.setImageResource(R.drawable.resta);
+            } else{
+                resultado = numAleatorio_uno * numAleatorio_dos;
+                iv_signo.setImageResource(R.drawable.multiplicacion);
+            }
 
+            if(resultado >= 0){
 
-
-            for (int i = 0; i<numero.length; i++){
-                int id = getResources().getIdentifier(numero[i],"drawable", getPackageName());
-                if(numAleatorio_uno == i){
-                    iv_Auno.setImageResource(id);
-                }if(numAleatorio_dos == i){
-                    iv_Ados.setImageResource(id);
+                for (int i = 0; i<numero.length; i++){
+                    int id = getResources().getIdentifier(numero[i],"drawable", getPackageName());
+                    if(numAleatorio_uno == i){
+                        iv_Auno.setImageResource(id);
+                    }if(numAleatorio_dos == i){
+                        iv_Ados.setImageResource(id);
+                    }
                 }
+
+            }else{
+
+                NumAleatorio();
             }
 
 
-
         }else{
-            Intent intent = new Intent(this,MainActivity2_Nivel6.class);
+            Intent intent = new Intent(this,MainActivity.class);
 
-            string_score = String.valueOf(score);
-            string_vidas = String.valueOf(vidas);
-            intent.putExtra("jugador", nombre_jugador);
-            intent.putExtra("score", string_score);
-            intent.putExtra("vidas", string_vidas);
+           Toast.makeText(this,"Buen trabajo 'Felicidades' ", Toast.LENGTH_LONG).show();
 
             startActivity(intent);
             finish();

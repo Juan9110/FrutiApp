@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
             mp.release();
 
             Intent intent = new Intent(this, MainActivity2_Nivel1.class);
+
+
             intent.putExtra("jugador", nombre);
             startActivity(intent);
             finish();
