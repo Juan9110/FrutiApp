@@ -27,7 +27,7 @@ public class MainActivity2_Nivel5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_activity2__nivel1);
+        setContentView(R.layout.activity_main_activity2__nivel5);
 
         Toast.makeText(this, "Nivel 5 - Multiplicasiones", Toast.LENGTH_LONG).show();
 
