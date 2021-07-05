@@ -109,21 +109,22 @@
 
     <EditText
         android:id="@+id/editText_resultado"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_width="135dp"
+        android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="197dp"
-        android:layout_marginLeft="197dp"
-        android:layout_marginTop="413dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="534dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:layout_toStartOf="@+id/button2"
         android:layout_toLeftOf="@+id/button2"
         android:ems="10"
         android:hint="@string/et_respuesta"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/button2"
@@ -132,7 +133,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="417dp"
+        android:layout_marginTop="550dp"
         android:layout_marginEnd="-8dp"
         android:layout_marginRight="-8dp"
         android:background="@drawable/fondoboton"
