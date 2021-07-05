@@ -58,7 +58,7 @@ public class MainActivity2_Nivel3 extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        mp = MediaPlayer.create(this, R.raw.goats);
+        mp = MediaPlayer.create(this, R.raw.sonido3);
         mp.start();
         mp.setLooping(true);
 
