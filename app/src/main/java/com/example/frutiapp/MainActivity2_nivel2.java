@@ -59,7 +59,7 @@ public class MainActivity2_nivel2 extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        mp = MediaPlayer.create(this, R.raw.sonido2);
+        mp = MediaPlayer.create(this, R.raw.goats);
         mp.start();
         mp.setLooping(true);
 

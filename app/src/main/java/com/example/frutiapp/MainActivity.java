@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             BD.close();
         }
 
-        mp = MediaPlayer.create(this, R.raw.sonido0);
+        mp = MediaPlayer.create(this, R.raw.alphabet_song);
         mp.start();
         mp.setLooping(true);
 

@@ -61,7 +61,7 @@ public class MainActivity2_Nivel6 extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        mp = MediaPlayer.create(this, R.raw.sonido6);
+        mp = MediaPlayer.create(this, R.raw.goats);
         mp.start();
         mp.setLooping(true);
 
@@ -125,7 +125,7 @@ public class MainActivity2_Nivel6 extends AppCompatActivity {
     }
 
     public void NumAleatorio() {
-        if(score <=100000000){
+        if(score <=1000){
 
             numAleatorio_uno = (int) (Math.random() * 10);
             numAleatorio_dos = (int) (Math.random() * 10);

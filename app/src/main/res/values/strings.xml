@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FrutiApp</string>
+    <string name="app_name">FrutiSumas</string>
     <string name="et_nombre">¿Como te llamas</string>
     <string name="boton">Jugar</string>
 
